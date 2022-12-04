@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!--
+⡠⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀
+⢸⣀⠜⢄⡀⠀⠰⣶⣤⣀⠀⠀⣠⠔⠚⢛⣛⣦⡀⠀⠀⠀⠀⠀⠀⡐⠉⠉⢶⠄
+⠈⢅⠀⡈⠱⣄⠀⠈⠛⠻⢷⡎⡡⣶⣿⣿⣿⢿⣿⡀⠀⠀⠀⠀⣴⣯⣝⣲⠊⠀
+⠀⠀⠠⢅⢀⡎⣷⣄⠀⠀⠀⢿⡰⠊⠁⠀⠸⡼⡏⣇⠀⠀⢀⣾⣿⣿⣿⡏⠀⠀
+⠀⠀⠀⠈⢻⣾⣿⣿⣷⣤⣀⣼⣧⡀⠀⣠⠴⣗⣳⣼⣄⣴⣿⣿⣿⣿⠟⠀
+⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣶⠏⢹⠁⠀⡟⢹⢿⣿⣿⣿⡟⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⠦⢅⣀⣨⣤⠴⡞⣿⣿⡟⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠘⠻⣿⣿⣿⣿⣿⠈⠲⢦⡾⣛⣾⣁⣸⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡍⡿⠟⢻⡔⠚⠚⣷⣼⣾⠉⢹⠃⠀⣀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⣷⠀⠀⢧⠀⠸⠋⠸⠌⠃⢸⠀⢰⣿⠃⠀⠀⠀ 
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣧⠀⣸⣤⣤⣶⣶⣶⣶⣾⣤⣿⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⠿⠿⠿⢿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠃⢸⠀⠀⠀⠀⠀⠀⠉⣿⠿⠏⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⢹⠀⢸⠀⠀⠀⠂⠁⠀⠀⢿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣇⢸⣤⣼⣀⣄⣀⡀⡀⢀⣀⡸⠄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠟⠉⠙⡿⠋⢹⠇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣅⣀⣀⣤⡷⠶⡿⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⢸⠃⣸⠃⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⠀⠀⠀⣿⢠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡄⠀⢰⣇⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠛⠛⢯⡉⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠳⠤⠤⠬⠏⠉⠀⠀⠀
+
+Welcome to FakeKEA!
+Project members:
+Dovydas Meškuotis
+Aleksandras Bukelis
+Dominykas Misius
+Gabrielis Vaclovas Zabitis
+
+WIP, but enjoy your stay =)
+-->
+
+<head>
+  <title>FakeKEA Shop</title>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="logo.ico" />
+  <script src="script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://kit.fontawesome.com/6c88fe81a9.js" crossorigin="anonymous"></script>
+
+</head>
+<html>
+  <div class="header">
+	<img class="img" src="https://i.ibb.co/KK6Nh80/logo-main.png.png"></img>
+	<h1 class="title">FakeKEA</h1>
+	<h1 class="mid-title">PREMIUM IKEA RESELLER</h1>
+  </div>
+
+  <body id="appBody">
+    <div class="container list">
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="vuran">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/581/448/78/58144878/sofa-lova-vuran-juoda-eda76_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Sofa-lova Vuran</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 225 cm x 85 cm x 60 cm<br />Spalva: juoda
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>302.00 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="mazzini">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  class=""
+                  src="https://lt1.pigugroup.eu/colours/468/815/53/46881553/triviete-sofa-mazzini-sofas-madara-veliuras-smelio-f0060_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Trivietė sofa Mazzini</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 222 cm x 102 cm x 90 cm <br />Spalva: smėlio
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>800.99 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="vidaxl">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt3.pigugroup.eu/colours/564/983/71/56498371/dviviete-vidaxl-sofa-lova-su-pakoja-geltona-64e10_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Dvivietė vidaXL sofa-lova su pakoja</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 200 cm x 100 cm x 32 cm <br />Spalva: geltona
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>316.99 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="mini">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/581/449/13/58144913/sofa-lova-mini-kombinuota-sviesiai-pilka-a3aa5_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Sofa-lova Mini</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 198 x 85 cm x 59 cm<br />Spalva: Šviesiai pilka
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>252.00 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="double">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/364/923/58/36492358/dviviete-sofa-dirbtine-oda-baltos-ir-tamsiai_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Dvivietė sofa, dirbtinė oda</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 219 cm x 119 cm x 69 cm cm<br />Spalva: Balta ir Juoda
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>292.00 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="triple">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/365/038/93/36503893/triviete-moduline-sofa-lova-pilka-kaina_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Trivietė modulinė sofa-lova</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 216 cm x 112 cm x 72 cm<br/>Spalva: Pilka
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>512.99 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="vuran">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/581/448/78/58144878/sofa-lova-vuran-juoda-eda76_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Sofa-lova Vuran, juoda</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 225 cm x 85 cm x 60 cm<br />Spalva: juoda
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>302.00 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="mazzini">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  class=""
+                  src="https://lt1.pigugroup.eu/colours/468/815/53/46881553/triviete-sofa-mazzini-sofas-madara-veliuras-smelio-f0060_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Trivietė sofa Mazzini</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 222 cm x 102 cm x 90 cm <br />Spalva: smėlio
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>800.99 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="vidaxl">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt3.pigugroup.eu/colours/564/983/71/56498371/dviviete-vidaxl-sofa-lova-su-pakoja-geltona-64e10_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Dvivietė vidaXL sofa-lova su pakoja</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 200 cm x 100 cm x 32 cm <br />Spalva: geltona
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>316.99 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="mini">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/581/449/13/58144913/sofa-lova-mini-kombinuota-sviesiai-pilka-a3aa5_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Sofa-lova Mini</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 198 x 85 cm x 59 cm<br />Spalva: Šviesiai pilka
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>252.00 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="double">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/364/923/58/36492358/dviviete-sofa-dirbtine-oda-baltos-ir-tamsiai_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Dvivietė sofa, dirbtinė oda</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 219 cm x 119 cm x 69 cm<br />Spalva: Balta ir Juoda
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>292.00 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="prod">
+        <a class="list">
+          <div class="product" data-name="triple">
+            <div class="item-img-wrap">
+              <div class="img-link">
+                <img
+                  src="https://lt2.pigugroup.eu/colours/365/038/93/36503893/triviete-moduline-sofa-lova-pilka-kaina_xbig.jpg"
+                />
+              </div>
+            </div>
+            <div class="title"><span>Trivietė modulinė sofa-lova</span></div>
+            <div class="middle">
+              <span>Sofos</span>
+            </div>
+            <div class="description">
+              <div class="text">
+                Išmatavimai: 216 cm x 112 cm x 72 cm<br/>Spalva: Pilka
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="price"><span>512.99 €</span></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    <div class="products-preview">
+      <div class="preview" data-target="vuran">
+        <i class="fas fa-times"></i>
+        <img
+          src="https://lt2.pigugroup.eu/colours/581/448/78/58144878/sofa-lova-vuran-juoda-eda76_xbig.jpg"
+        />
+        <h3>Sofa-lova Vuran</h3>
+        <p>
+          + Yra prekyboje;
+          <br>+ Kokybiškas bei lengvai prižiūrimas audinys;
+          <br>+ Visa konstrukcija pagaminta iš faneruotos medienos (tarnaus iki trijų kartų ilgiau);
+          <br>+ Didelė patalynės dėžė;
+          <br>+ Patogi miegamoji vieta dviem asmenims (145 cm x 198 cm х 45 cm).
+        </p>
+        <table>
+          <tr>
+            <td>Išmatavimai</td>
+            <td>225 cm x 85 cm x 60 cm</td>
+          </tr>
+          <tr>
+            <td>Spalva</td>
+            <td>Juoda</td>
+          </tr>
+          <tr>
+            <td>Kilmės šalis</td>
+            <td>Kinija</td>
+          </tr>
+        </table> 
+        <div class="price">302.00€</div>
+      </div>
+      <div class="preview" data-target="mazzini">
+        <i class="fas fa-times"></i>
+        <img
+          src="https://lt1.pigugroup.eu/colours/468/815/53/46881553/triviete-sofa-mazzini-sofas-madara-veliuras-smelio-f0060_xbig.jpg"
+        />
+        <h3>Trivietė sofa Mazzini</h3>
+        <p>
+          + Modernaus stiliaus patogi trivietė sofa;
+          <br>+ Sofa be patalynės dėžės ir be miegojimo funkcijos;
+          <br>+ Komplekte dvi dekoratyvios pagalvėlės;
+          <br>+ Rėmas pagamintas iš pušies medienos, medžio drožlių plokštės, fanieros ir pluoštinės plokštės;
+          <br>+ Sėdimosios dalies išmatavimai: 180 cm x 62 cm x 46 cm.
+        </p>
+        <table>
+          <tr>
+            <td>Išmatavimai</td>
+            <td>222 cm x 102 cm x 90 cm</td>
+          </tr>
+          <tr>
+            <td>Spalva</td>
+            <td>Smėlio</td>
+          </tr>
+          <tr>
+            <td>Kilmės šalis</td>
+            <td>Kinija</td>
+          </tr>
+        </table> 
+        <div class="price">800.99€</div>
+      </div>
+      <div class="preview" data-target="vidaxl">
+        <i class="fas fa-times"></i>
+        <img
+          src="https://lt3.pigugroup.eu/colours/564/983/71/56498371/dviviete-vidaxl-sofa-lova-su-pakoja-geltona-64e10_xbig.jpg"
+        />
+        <h3>Dvivietė vidaXL sofa-lova su pakoja</h3>
+        <p>
+          + Komplektą sudaro 1x sofa-lova, 1x pakoja, 2x pagalvės;
+          <br>+ Bendri sofos matmenys: 200 cm x 84,5 cm x 69 cm;
+          <br>+ Lengvai transformuojama į lovą;
+          <br>+ Pakojos matmenys: 78 cm x 56 cm x 32 cm;
+          <br>+ Pagalvės dydis: 40 mm x 40 mm.
+        </p>
+        <table>
+          <tr>
+            <td>Išmatavimai</td>
+            <td>200 x 100 x 32 cm</td>
+          </tr>
+          <tr>
+            <td>Spalva</td>
+            <td>Geltona</td>
+          </tr>
+          <tr>
+            <td>Kilmės šalis</td>
+            <td>Kinija</td>
+          </tr>
+        </table> 
+        <div class="price">302.00€</div>
+      </div>
+      <div class="preview" data-target="mini">
+        <i class="fas fa-times"></i>
+        <img
+          src="https://lt2.pigugroup.eu/colours/581/449/13/58144913/sofa-lova-mini-kombinuota-sviesiai-pilka-a3aa5_xbig.jpg"
+        />
+        <h3>Sofa-lova Mini</h3>
+        <p>
+          +Yra prekyboje;
+          <br>+ Kokybiškas bei lengvai prižiūrimas audinys;
+          <br>+ Visa konstrukcija pagaminta iš faneruotos medienos (tarnaus iki trijų kartų ilgiau nei medinis/ pjuvenų medienos karkasas);
+          <br>+ Didelė patalynės dėžė;
+          <br>+ Patogi miegamoji vieta dviem asmenims (145 cm x 198 cm).
+        </p>
+        <table>
+          <tr>
+            <td>Išmatavimai</td>
+            <td>198 x 85 cm x 59 cm</td>
+          </tr>
+          <tr>
+            <td>Spalva</td>
+            <td>Šviesiai pilka</td>
+          </tr>
+          <tr>
+            <td>Kilmės šalis</td>
+            <td>Kinija</td>
+          </tr>
+        </table> 
+        <div class="price">252.00€</div>
+      </div>
+      <div class="preview" data-target="double">
+        <i class="fas fa-times"></i>
+        <img
+          src="https://lt2.pigugroup.eu/colours/364/923/58/36492358/dviviete-sofa-dirbtine-oda-baltos-ir-tamsiai_xbig.jpg"
+        />
+        <h3>Dvivietė vidaXL sofa-lova su pakoja</h3>
+        <p>
+          + Dirbtinės odos dvivietė sofa sujungia stilių ir komfortą;
+          <br>+ Dirbtinės odos ir audinio derinys suteikia sofai šiuolaikišką išvaizdą;
+          <br>+ Sofos medinis rėmas ir plieno kojelės jai suteikia tvirtumo ir patvarumo;
+          <br>+ Audiniu apmuštos pagalvėlės yra patogios;
+          <br>+ Sofą lengva surinkti.
+        </p>
+        <table>
+          <tr>
+            <td>Išmatavimai</td>
+            <td>219 cm x 119 cm x 69 cm</td>
+          </tr>
+          <tr>
+            <td>Spalva</td>
+            <td>Balta ir Juoda</td>
+          </tr>
+          <tr>
+            <td>Kilmės šalis</td>
+            <td>Kinija</td>
+          </tr>
+        </table> 
+        <div class="price">292.00€</div>
+      </div>
+      <div class="preview" data-target="triple">
+        <i class="fas fa-times"></i>
+        <img
+          src="https://lt2.pigugroup.eu/colours/365/038/93/36503893/triviete-moduline-sofa-lova-pilka-kaina_xbig.jpg"
+        />
+        <h3>Trivietė modulinė sofa-lova</h3>
+        <p>
+          + Sudaryta iš modulių;
+          <br>+ Modulines sekcijas galite lengvai komplektuoti į skirtingas kombinacijas;
+          <br>+ Pasižymi minkšta prisiliesti dirbtine oda ir storu paminkštinimu;
+          <br>+ Trys dekoratyvinės pagalvės
+          <br>+ Lengva surinkti.
+        </p>
+        <table>
+          <tr>
+            <td>Išmatavimai</td>
+            <td>216 cm x 112 cm x 72 cm</td>
+          </tr>
+          <tr>
+            <td>Spalva</td>
+            <td>Pilka</td>
+          </tr>
+          <tr>
+            <td>Kilmės šalis</td>
+            <td>Kinija</td>
+          </tr>
+        </table> 
+        <div class="price">512.99€</div>
+      </div>
+    </div>
+ </div>
+  </body>
+
+  <footer>
+    <div class="content">
+      <div class="left box">
+        <div class="upper">
+          <div class="topic">About us</div>
+          <p>
+            Designed by MadeInFiverr<br />
+            FakeKEA is a premium IKEA furniture reseller
+          </p>
+        </div>
+        <div class="middle box">
+          <div class="upper">
+            <div class="topic">
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right box">
+        <div class="topic">Contact us</div>
+        <div class="phone">
+          <a href="#"><i class="fas fa-phone-volume"></i>+370 123 456</a>
+        </div>
+        <div class="email">
+          <a href="#"><i class="fas fa-envelope"></i>FakeKEA@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
